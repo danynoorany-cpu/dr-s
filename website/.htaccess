@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+DirectoryIndex index.html
+RewriteEngine On
+RewriteBase /insights/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+</IfModule>
