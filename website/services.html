@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>שירותים — סימנייה</title>
+<meta name="description" content="דרכים לעבוד יחד: שיחת בירור, ליווי אישי, מפגש מיקוד.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Frank+Ruhl+Libre:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav wrap" aria-label="ניווט ראשי">
+    <a class="brand" href="index.html"><img src="logo-full.jpg" alt="סימנייה — שליחות. משמעות. תוצאות" class="brand-logo"></a>
+    <button class="nav-toggle" aria-label="תפריט" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">בית</a></li>
+      <li><a href="about.html">אודות</a></li>
+      <li><a href="services.html" aria-current="page">שירותים</a></li>
+      <li><a href="contact.html">צור קשר</a></li>
+      <li><a class="nav-cta" href="contact.html">קביעת שיחת בירור</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">שירותים</p>
+      <h1>דרכים לעבוד יחד</h1>
+      <p>כל מסלול מתחיל באותו מקום — שיחת בירור קצרה, ללא התחייבות.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <p class="prose"><strong>[טיוטה — דני, עדכן את השירותים והתיאורים למה שאתה באמת מציע]</strong></p>
+      <div class="svc-grid">
+        <article class="svc">
+          <h3>שיחת בירור</h3>
+          <p>פגישה ראשונית קצרה להבין מה מביא אותך לכאן, ואם סימנייה היא הדרך הנכונה עבורך. דיסקרטית וללא התחייבות.</p>
+        </article>
+        <article class="svc">
+          <h3>ליווי אישי</h3>
+          <p>תהליך מלווה לאורך זמן, ברגעי מפנה והחלטה. קצב ומבנה שנקבעים יחד, לפי מה שנכון לך.</p>
+        </article>
+        <article class="svc">
+          <h3>מפגש מיקוד</h3>
+          <p>פגישה ממוקדת סביב החלטה או צומת ספציפי — לזהות את הסימן, להבחין, ולדייק את הצעד הבא.</p>
+        </article>
+      </div>
+      <p style="margin-top:2.5rem" class="center"><a class="btn btn-dark" href="contact.html">קביעת שיחת בירור</a></p>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 סימנייה</span>
+    <ul class="foot-nav">
+      <li><a href="about.html">אודות</a></li>
+      <li><a href="services.html">שירותים</a></li>
+      <li><a href="contact.html">צור קשר</a></li>
+    </ul>
+  </div>
+</footer>
+<script>
+  const t = document.querySelector('.nav-toggle');
+  const l = document.querySelector('.nav-links');
+  t.addEventListener('click', () => { const o = l.classList.toggle('open'); t.setAttribute('aria-expanded', o); });
+</script>
+</body>
+</html>

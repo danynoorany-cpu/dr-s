@@ -1,0 +1,407 @@
+/* ============================================================
+   סימנייה — Simaneyah static site
+   Design system: "הסימן" — the sign / the bookmark.
+   A quiet, confident coaching site. Hebrew-first, RTL.
+   Signature element: a thin marker-ribbon that runs down the
+   right edge and marks section starts, like a bookmark in a book.
+   ============================================================ */
+
+:root {
+  /* Palette — deep indigo ink + warm gold marker, restrained */
+  --ink:        #1b1733;   /* near-black indigo, main text & dark sections */
+  --ink-soft:   #3a3357;   /* softened ink for secondary text */
+  --indigo:     #4b3f8f;   /* the purple nod to the previous design */
+  --indigo-lo:  #6f63b8;   /* lighter indigo for accents on dark */
+  --marker:     #c9a24b;   /* warm gold — the signature ribbon/sign */
+  --marker-lo:  #e4c983;   /* lighter gold for hovers */
+  --paper:      #f7f5ef;   /* warm off-white page */
+  --paper-2:    #efe9dd;   /* slightly deeper paper for cards */
+  --line:       #ddd5c4;   /* hairline on paper */
+
+  --maxw: 1080px;
+  --gap: clamp(1rem, 2.5vw, 2rem);
+
+  --font-display: "Frank Ruhl Libre", "David Libre", Georgia, serif;
+  --font-body: "Assistant", "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ---- Layout helpers ---- */
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gap); }
+.center { text-align: center; }
+
+/* ============================================================
+   The signature: marker ribbon
+   ============================================================ */
+.marker-line { color: var(--marker); }
+
+/* An eyebrow that looks like a small sign/tab */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  color: var(--marker);
+  position: relative;
+  padding-inline-start: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+.eyebrow::before {
+  content: "";
+  position: absolute;
+  inline-size: 0.85rem;
+  block-size: 2px;
+  background: var(--marker);
+  inset-block-start: 0.7em;
+  inset-inline-start: 0;
+}
+
+/* ============================================================
+   Header / nav
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(247,245,239,0.86);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.9rem;
+}
+.brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--ink);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.brand-logo {
+  height: 56px;
+  width: auto;
+  border-radius: 4px;
+}
+/* small bookmark glyph next to the brand */
+.brand .bm {
+  inline-size: 14px;
+  block-size: 22px;
+  background: var(--marker);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 82%, 0 100%);
+  display: inline-block;
+}
+.nav-links { display: flex; gap: 1.6rem; list-style: none; align-items: center; }
+.nav-links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.98rem;
+  padding-block: 0.3rem;
+  border-bottom: 2px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--marker);
+}
+.nav-cta {
+  background: var(--ink);
+  color: var(--paper) !important;
+  padding: 0.55rem 1.1rem !important;
+  border-radius: 999px;
+  border-bottom: none !important;
+}
+.nav-cta:hover { background: var(--indigo); }
+
+.nav-toggle { display: none; background: none; border: 0; cursor: pointer; }
+.nav-toggle span { display: block; width: 26px; height: 2px; background: var(--ink); margin: 5px 0; }
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.85rem 1.7rem;
+  border-radius: 999px;
+  transition: transform .15s, background .2s, color .2s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary { background: var(--marker); color: var(--ink); }
+.btn-primary:hover { background: var(--marker-lo); transform: translateY(-2px); }
+.btn-ghost { background: transparent; color: var(--paper); border: 1.5px solid rgba(247,245,239,0.4); }
+.btn-ghost:hover { border-color: var(--marker); color: var(--marker-lo); }
+.btn-dark { background: var(--ink); color: var(--paper); }
+.btn-dark:hover { background: var(--indigo); transform: translateY(-2px); }
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero {
+  background: var(--ink);
+  color: var(--paper);
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(4rem, 12vh, 8rem);
+}
+/* the ribbon running down the right edge of the hero */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: clamp(1.5rem, 6vw, 5rem);
+  inline-size: 3px;
+  background: linear-gradient(var(--marker), transparent);
+  opacity: 0.7;
+}
+.hero .wrap { position: relative; }
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  max-inline-size: 15ch;
+  margin-bottom: 1.2rem;
+  animation: rise .8s ease both;
+}
+.hero .lead {
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  color: #d8d2ea;
+  max-inline-size: 40ch;
+  margin-bottom: 0.6rem;
+  animation: rise .8s .1s ease both;
+}
+.hero .tagline {
+  color: var(--marker-lo);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 2rem;
+  animation: rise .8s .2s ease both;
+}
+.hero .cta-row { display: flex; gap: 1rem; flex-wrap: wrap; animation: rise .8s .3s ease both; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   Sections
+   ============================================================ */
+section { padding-block: clamp(3.5rem, 9vh, 6rem); }
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  max-inline-size: 24ch;
+}
+.section-intro { font-size: 1.15rem; color: var(--ink-soft); max-inline-size: 52ch; }
+
+/* the "signs" three-part block (זיהוי / הבחנה / החלטה) */
+.signs { background: var(--paper-2); }
+.signs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+.sign-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 2rem 1.8rem;
+  position: relative;
+}
+/* each card carries a little marker tab at its top-right */
+.sign-card::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-end: 1.8rem;
+  inline-size: 12px;
+  block-size: 20px;
+  background: var(--marker);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+}
+.sign-card .num {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--marker);
+  font-weight: 700;
+}
+.sign-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin: 0.4rem 0 0.6rem;
+  color: var(--ink);
+}
+.sign-card p { color: var(--ink-soft); }
+
+/* "what is Simaneyah" statement block */
+.statement { background: var(--ink); color: var(--paper); }
+.statement .section-title { color: var(--paper); }
+.statement p { color: #d8d2ea; font-size: 1.2rem; max-inline-size: 58ch; margin-bottom: 1rem; }
+.statement a.inline-link { color: var(--marker-lo); text-decoration: underline; text-underline-offset: 3px; }
+
+/* process steps (identify/discern/decide) reused on About */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+.step { padding-inline-start: 1.4rem; border-inline-start: 2px solid var(--marker); }
+.step h4 { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 0.4rem; }
+.step p { color: var(--ink-soft); }
+
+/* CTA band */
+.cta-band { background: var(--paper-2); text-align: center; }
+.cta-band .section-title { margin-inline: auto; }
+
+/* ============================================================
+   Content pages (about/services/contact)
+   ============================================================ */
+.page-head { background: var(--ink); color: var(--paper); padding-block: clamp(3rem, 8vh, 5rem); position: relative; overflow: hidden; }
+.page-head::before {
+  content: ""; position: absolute; inset-block: 0;
+  inset-inline-end: clamp(1.5rem, 6vw, 5rem); inline-size: 3px;
+  background: linear-gradient(var(--marker), transparent); opacity: .7;
+}
+.page-head h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.2rem); position: relative; }
+.page-head p { color: #d8d2ea; margin-top: 0.6rem; max-inline-size: 50ch; position: relative; }
+
+.prose { max-inline-size: 68ch; }
+.prose p { margin-bottom: 1.2rem; font-size: 1.1rem; color: var(--ink-soft); }
+.prose h2 { font-family: var(--font-display); font-size: 1.7rem; margin: 2.2rem 0 0.8rem; color: var(--ink); }
+
+/* services list */
+.svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.5rem; margin-top: 2rem; }
+.svc {
+  background: var(--paper-2); border: 1px solid var(--line);
+  border-radius: 14px; padding: 2rem;
+}
+.svc h3 { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 0.6rem; }
+.svc p { color: var(--ink-soft); }
+
+/* ============================================================
+   Contact form
+   ============================================================ */
+.form-card {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: clamp(1.6rem, 4vw, 2.6rem);
+  max-inline-size: 620px;
+}
+.field { margin-bottom: 1.2rem; }
+.field label { display: block; font-weight: 600; margin-bottom: 0.4rem; color: var(--ink); }
+.field input, .field textarea {
+  inline-size: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  transition: border-color .2s;
+}
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--marker); }
+.field textarea { min-block-size: 130px; resize: vertical; }
+.form-note { font-size: 0.9rem; color: var(--ink-soft); margin-top: 1rem; }
+
+/* ============================================================
+   Portrait (Dany)
+   ============================================================ */
+.hero-portrait {
+  inline-size: clamp(96px, 14vw, 150px);
+  block-size: clamp(96px, 14vw, 150px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--marker);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  margin-bottom: 1.6rem;
+  animation: rise .8s ease both;
+}
+
+.about-strip { background: var(--paper-2); }
+.about-strip .wrap {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  flex-wrap: wrap;
+}
+.about-strip img {
+  inline-size: clamp(160px, 26vw, 240px);
+  block-size: clamp(160px, 26vw, 240px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--paper);
+  box-shadow: 0 10px 34px rgba(27,23,51,0.18);
+  flex-shrink: 0;
+}
+.about-strip .about-text { flex: 1 1 320px; }
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  background: var(--ink);
+  color: #cfc9e0;
+  padding-block: 2.5rem;
+  margin-top: 2rem;
+}
+.site-footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; }
+.site-footer a { color: var(--marker-lo); text-decoration: none; }
+.site-footer a:hover { text-decoration: underline; }
+.foot-nav { display: flex; gap: 1.3rem; list-style: none; }
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 720px) {
+  .nav-links {
+    position: absolute;
+    inset-block-start: 100%;
+    inset-inline: 0;
+    background: var(--paper);
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+    max-block-size: 0;
+    overflow: hidden;
+    transition: max-block-size .3s ease;
+  }
+  .nav-links.open { max-block-size: 360px; }
+  .nav-links li { inline-size: 100%; border-top: 1px solid var(--line); }
+  .nav-links a { display: block; padding: 0.9rem var(--gap); border-bottom: none; }
+  .nav-links .nav-cta { margin: 0.8rem var(--gap); text-align: center; }
+  .nav-toggle { display: block; }
+}

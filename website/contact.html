@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>צור קשר — סימנייה</title>
+<meta name="description" content="קביעת שיחת בירור עם סימנייה. פנייה דיסקרטית וללא התחייבות.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Frank+Ruhl+Libre:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav wrap" aria-label="ניווט ראשי">
+    <a class="brand" href="index.html"><img src="logo-full.jpg" alt="סימנייה — שליחות. משמעות. תוצאות" class="brand-logo"></a>
+    <button class="nav-toggle" aria-label="תפריט" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">בית</a></li>
+      <li><a href="about.html">אודות</a></li>
+      <li><a href="services.html">שירותים</a></li>
+      <li><a href="contact.html" aria-current="page">צור קשר</a></li>
+      <li><a class="nav-cta" href="contact.html">קביעת שיחת בירור</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">צור קשר</p>
+      <h1>נשמח לשמוע ממך</h1>
+      <p>מלא/י את הפרטים ונחזור אליך לתיאום שיחת בירור.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <form class="form-card" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="POST">
+        <div class="field">
+          <label for="name">שם</label>
+          <input id="name" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">אימייל</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="phone">טלפון (לא חובה)</label>
+          <input id="phone" name="phone" type="tel" autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="message">מה מביא אותך לסימנייה?</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">שליחה</button>
+        <p class="form-note">הפנייה נשלחת ישירות למייל של דני. הפרטים נשמרים בדיסקרטיות מלאה.</p>
+      </form>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 סימנייה</span>
+    <ul class="foot-nav">
+      <li><a href="about.html">אודות</a></li>
+      <li><a href="services.html">שירותים</a></li>
+      <li><a href="contact.html">צור קשר</a></li>
+    </ul>
+  </div>
+</footer>
+<script>
+  const t = document.querySelector('.nav-toggle');
+  const l = document.querySelector('.nav-links');
+  t.addEventListener('click', () => { const o = l.classList.toggle('open'); t.setAttribute('aria-expanded', o); });
+</script>
+</body>
+</html>

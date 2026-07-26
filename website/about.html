@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>אודות — סימנייה</title>
+<meta name="description" content="מה זו סימנייה — רגע של עצירה מודעת לפני החלטה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Frank+Ruhl+Libre:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav wrap" aria-label="ניווט ראשי">
+    <a class="brand" href="index.html"><img src="logo-full.jpg" alt="סימנייה — שליחות. משמעות. תוצאות" class="brand-logo"></a>
+    <button class="nav-toggle" aria-label="תפריט" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">בית</a></li>
+      <li><a href="about.html" aria-current="page">אודות</a></li>
+      <li><a href="services.html">שירותים</a></li>
+      <li><a href="contact.html">צור קשר</a></li>
+      <li><a class="nav-cta" href="contact.html">קביעת שיחת בירור</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">אודות</p>
+      <h1>מה זו סימנייה?</h1>
+      <p>רגע של עצירה מודעת — לפני שממהרים לשנות, ולפני שממשיכים מתוך הרגל.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap prose">
+      <p><strong>[טיוטה — דני, זה הטקסט שכדאי להחליף בשלך]</strong></p>
+      <p>סימנייה נולדה מתוך אמונה פשוטה: החיים שולחים לנו סימנים הרבה לפני שמשהו נשבר. שחיקה שחוזרת, מחשבה שלא מרפה, תחושה שקטה שמשהו כבר לא מדויק — כל אלה אינם רעש. הם סימנים.</p>
+      <p>רובנו מגיבים לסימנים באחת משתי דרכים: ממהרים לשנות הכול, או ממשיכים כרגיל ומקווים שזה יעבור. סימנייה מציעה דרך שלישית — לעצור רגע, להקשיב, ולהבין מה הסימן באמת אומר, לפני שמחליטים.</p>
+      <h2>הגישה</h2>
+      <p>אני מלווה אנשים ברגעי מפנה — לא כדי לתת להם תשובות, אלא כדי לעזור להם לקרוא נכון את הסימנים שכבר נמצאים שם. התהליך אישי, דיסקרטי, וללא התחייבות מראש.</p>
+      <div class="steps">
+        <div class="step"><h4>זיהוי</h4><p>מה באמת חוזר בחיים שלנו?</p></div>
+        <div class="step"><h4>הבחנה</h4><p>האם זה סימן עמוק או רעש רגעי?</p></div>
+        <div class="step"><h4>החלטה מודעת</h4><p>להישאר, לשנות, או לדייק.</p></div>
+      </div>
+      <p style="margin-top:2.5rem"><a class="btn btn-dark" href="contact.html">קביעת שיחת בירור</a></p>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 סימנייה</span>
+    <ul class="foot-nav">
+      <li><a href="about.html">אודות</a></li>
+      <li><a href="services.html">שירותים</a></li>
+      <li><a href="contact.html">צור קשר</a></li>
+    </ul>
+  </div>
+</footer>
+<script>
+  const t = document.querySelector('.nav-toggle');
+  const l = document.querySelector('.nav-links');
+  t.addEventListener('click', () => { const o = l.classList.toggle('open'); t.setAttribute('aria-expanded', o); });
+</script>
+</body>
+</html>
